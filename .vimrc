@@ -2,6 +2,7 @@ nmap 0 ^
 imap jk <esc> :w<cr> 
 imap kj <esc> :w<cr> 
 
+command! Q q
 
 set number
 set expandtab
