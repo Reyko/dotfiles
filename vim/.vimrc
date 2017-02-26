@@ -20,8 +20,11 @@ autocmd FileType go setlocal tabstop=8 shiftwidth=8
 call plug#begin()
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'bcicen/vim-vice'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'fatih/vim-go'
 
 call plug#end()
 
+" Colorscheme
+  colorscheme vice
