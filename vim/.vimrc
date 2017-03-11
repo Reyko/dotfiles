@@ -11,6 +11,11 @@ set expandtab
 set tabstop=2
 set shiftwidth=2
 
+set encoding=utf8
+set guifont=<FONT_NAME>:h<FONT_SIZE>
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
+
+
 filetype plugin indent on
 
 " The Silver Searcher
@@ -39,6 +44,7 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'bcicen/vim-vice'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'ryanoasis/vim-devicons'
 Plug 'fatih/vim-go'
 
 call plug#end()
