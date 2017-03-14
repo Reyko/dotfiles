@@ -1,6 +1,6 @@
 " Mappings
 nmap 0 ^
-nmap <enter> o<esc>
+nmap <enter> o<esc><UP>
 imap jk <esc> :w<cr> 
 imap kj <esc> :w<cr> 
 
@@ -14,7 +14,6 @@ set shiftwidth=2
 set encoding=utf8
 set guifont=<FONT_NAME>:h<FONT_SIZE>
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
-
 
 filetype plugin indent on
 
