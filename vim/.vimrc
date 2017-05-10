@@ -41,6 +41,7 @@ autocmd FileType go setlocal tabstop=8 shiftwidth=8
 call plug#begin()
 
 Plug 'altercation/vim-colors-solarized'
+Plug 'tpope/vim-sensible'
 Plug 'bcicen/vim-vice'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
