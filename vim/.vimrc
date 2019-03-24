@@ -7,6 +7,17 @@ nmap KB :NERDTreeToggle<CR>
 imap jk <esc> :w<cr> 
 imap kj <esc> :w<cr> 
 
+" NERDCommenter
+let g:NERDCreateDefaultMappings = 0
+let g:NERDSpaceDelims = 1
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat'
+      \ }
+
+map <Leader>cc <Plug>NERDCommenterToggle('n', 'Toggle')<Cr>
+
 command! Q q
 
 set number
@@ -73,6 +84,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'pbrisbin/vim-mkdir'
 Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'scrooloose/nerdcommenter'
 
 " Clojure
 Plug 'guns/vim-clojure-static'
