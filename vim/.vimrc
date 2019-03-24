@@ -3,6 +3,7 @@ nmap <silent> <RIGHT> :cnext<CR>
 nmap <silent> <LEFT> :cprev<CR>
 nmap 0 ^
 nmap <enter> o<esc><UP>
+nmap KB :NERDTreeToggle<CR>
 imap jk <esc> :w<cr> 
 imap kj <esc> :w<cr> 
 
@@ -17,7 +18,12 @@ set encoding=utf8
 set guifont=<FONT_NAME>:h<FONT_SIZE>
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
+set noshowmode
+
 filetype plugin indent on
+
+" Close NERDTree window
+let g:ctrlp_dont_split = 'NERD'
 
 
 " The Silver Searcher
@@ -84,9 +90,6 @@ let g:jsx_ext_required = 0
   " coloscheme monokai-phoenix
   colorscheme monokai-soda
   set termguicolors
-
-" NERDTree
-map <C-n> :NERDTreeToggle<CR>
 
 
 " The Silver Searcher
