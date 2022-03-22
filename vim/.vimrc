@@ -4,8 +4,20 @@ nmap <silent> <LEFT> :cprev<CR>
 nmap 0 ^
 nmap <enter> o<esc><UP>
 nmap KB :NERDTreeToggle<CR>
-imap jk <esc> :w<cr> 
-imap kj <esc> :w<cr> 
+
+nmap <silent> <C-p> :Files<enter>
+nmap <silent> <C-g> :GFiles<enter>
+nmap <silent> <C-o> :Buffers<enter>
+" nmap \ :Rg<SPACE>
+nmap <C-f> :Rg<SPACE>
+
+imap jk <esc> :w<cr>
+imap kj <esc> :w<cr>
+
+" paste multiple times
+
+xnoremap p pgvy
+
 
 " NERDCommenter
 let g:NERDCreateDefaultMappings = 0
@@ -26,40 +38,37 @@ set tabstop=2
 set shiftwidth=2
 
 set encoding=utf8
-set guifont=<FONT_NAME>:h<FONT_SIZE>
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Plus\ Nerd\ File\ Types:h11
 
 set noshowmode
 
 filetype plugin indent on
 
-" Close NERDTree window
-let g:ctrlp_dont_split = 'NERD'
 
+" Close NERDTree window
+" let g:ctrlp_dont_split = 'NERD'
 
 " The Silver Searcher
-if executable('ag')
+" if executable('ag')
   " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
+  " set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects
   " .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+  " let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
   " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-endif
+  " let g:ctrlp_use_caching = 0
+" endif
 
 " bind K to grep word under cursor
-nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
 " bind \ (backward slash) to grep shortcut
-command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-
-nnoremap \ :Ag<SPACE>
+" command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
 
 " File type specific rules
-autocmd FileType go setlocal tabstop=8 shiftwidth=8 
+autocmd FileType go setlocal tabstop=8 shiftwidth=8
 
 " Initialize plugin system
 call plug#begin()
@@ -73,7 +82,6 @@ Plug 'tpope/vim-abolish'
 Plug 'bcicen/vim-vice'
 Plug 'dunckr/vim-monokai-soda', { 'as': 'monokai-soda' }
 Plug 'reewr/vim-monokai-phoenix', { 'as': 'monokai-phoenix' }
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'slim-template/vim-slim'
@@ -88,6 +96,14 @@ Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'jremmen/vim-ripgrep'
 Plug 'mileszs/ack.vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'pseewald/vim-anyfold'
+
+
+" Search
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'wookayin/fzf-ripgrep.vim'
 
 
 " Clojure
@@ -96,6 +112,21 @@ Plug 'tpope/vim-fireplace'
 
 
 call plug#end()
+
+" Fold
+filetype plugin indent on " required
+syntax on                 " required
+
+autocmd Filetype * AnyFoldActivate               " activate for all filetypes
+
+" set foldlevel=0  " close all folds
+" or
+set foldlevel=99 " Open all folds
+
+" Remove whitespace
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save = 1
+
 
 " ack.vim --- {{{
 
@@ -135,4 +166,7 @@ let g:jsx_ext_required = 0
   colorscheme monokai-soda
   set termguicolors
 
-nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+" nnoremap K :Ack! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" Enable fzf
+set rtp+=/opt/homebrew/opt/fzf
